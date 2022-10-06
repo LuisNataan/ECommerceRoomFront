@@ -1,4 +1,4 @@
-export interface Suppplier
+export interface Supplier
 {
   Name: string,
   CorporateName: string,
