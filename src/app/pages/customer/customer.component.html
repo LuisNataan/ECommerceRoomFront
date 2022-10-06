@@ -12,29 +12,17 @@
 
 <section class="section">
   <div class="container">
-    <form action="register" method="post" (ngSubmit)="customerForm()">
+    <form [formGroup]="customerForm" action="register" method="post">
       <div class="field">
-        <label class="label">
-          Name
-        </label>
+        <label class="label">Name</label>
         <input type="text" name="name" class="input" formControlName="name" autocomplete="no">
-        <div class="help is-error" ngIf="name.invalid">
-          Your name is required.
         </div>
-
-      </div>
-
       <div class="field">
-        <label class="label">
-          Email
-        </label>
+        <label class="label">Email</label>
         <input type="email" name="email" class="input" formControlName="email" autocomplete="off">
       </div>
-
       <div class="field">
-        <label class="label">
-          Phone Number
-        </label>
+        <label class="label">Phone Number</label>
         <input type="text" name="phoneNumber" class="input" formControlName="phoneNumber">
       </div>
       <div class="field">
