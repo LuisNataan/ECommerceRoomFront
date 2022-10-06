@@ -1,0 +1,50 @@
+<app-header></app-header>
+
+<section class="hero is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Register Customer
+      </h1>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <form action="register" method="post" (ngSubmit)="customerForm()">
+      <div class="field">
+        <label class="label">
+          Name
+        </label>
+        <input type="text" name="name" class="input" formControlName="name" autocomplete="no">
+        <div class="help is-error" ngIf="name.invalid">
+          Your name is required.
+        </div>
+
+      </div>
+
+      <div class="field">
+        <label class="label">
+          Email
+        </label>
+        <input type="email" name="email" class="input" formControlName="email" autocomplete="off">
+      </div>
+
+      <div class="field">
+        <label class="label">
+          Phone Number
+        </label>
+        <input type="text" name="phoneNumber" class="input" formControlName="phoneNumber">
+      </div>
+      <div class="field">
+        <button type="submit" class="button is-large is-warning">
+          Register
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<app-footer></app-footer>
+
