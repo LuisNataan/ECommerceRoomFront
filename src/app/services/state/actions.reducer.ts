@@ -1,10 +1,6 @@
-import { state } from '@angular/animations';
-import {Action, createFeatureSelector, createReducer, createSelector, on } from '@ngrx/store';
-import { registerCustomerSuccess, registerCustomerFailure,
-  registerSupplier, registerSupplierSuccess, registerSupplierFailure
-} from './service.actions';
-
-export interface State{
+import { createReducer, on } from '@ngrx/store';
+import * as CustomerActions from './service.actions';
+export interface State {
   token: string | null,
   errorMessage?: string,
   name: string | null
@@ -15,15 +11,21 @@ export const initialState: State = {
   name: null
 }
 
-const actionReducer = createReducer(
+export const actionReducer = createReducer(
   initialState,
-  on(registerCustomerSuccess, (state, {registerResponse}) => {
+  on(CustomerActions.registerCustomerSuccess, (state, { registerResponse }) => {
     return {
       ...state,
       token: registerResponse.responseMessage
     }
   }),
-  on(registerCustomerFailure, (state, {error}) => {
+  on(CustomerActions.registerCustomer, (state, { customer }) => {
+    return {
+      ...state,
+      customer
+    }
+  }),
+  on(CustomerActions.registerCustomerFailure, (state, { error }) => {
     return {
       ...state,
       token: null,
@@ -32,3 +34,4 @@ const actionReducer = createReducer(
     }
   })
 );
+
