@@ -1,5 +1,12 @@
-export interface Customer{
-  Name: string,
-  Email: string
-  PhoneNumber: string,
+export interface Customer {
+  name: string,
+  email: string
+  phoneNumber: string,
+  addressViewModel: {
+    city: string,
+    state: string,
+    streetName: string,
+    number: string,
+    zipCode: string
+  }
 }
