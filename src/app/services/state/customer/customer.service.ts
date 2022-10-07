@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class RegisterService {
+export class CustomerService {
 
   constructor(
     private httpClient: HttpClient,
@@ -18,14 +18,13 @@ export class RegisterService {
       const headers = {
         'Content-Type': 'application/json'
       };
-    this.httpClient.post("https://localhost:7090/Customer/Create", customer, {headers}).subscribe(
-      (response: any) =>
-      {
-        resolve(response);
-      },
-      (error: HttpErrorResponse) => {
-        reject(error.error);
-      }
+      this.httpClient.post("https://localhost:7090/Customer/Create", customer, { headers }).subscribe(
+        (response: any) => {
+          resolve(response);
+        },
+        (error: HttpErrorResponse) => {
+          reject(error.error);
+        }
       )
     }
     )

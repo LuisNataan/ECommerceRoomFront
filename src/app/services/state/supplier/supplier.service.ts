@@ -19,14 +19,13 @@ export class SupplierService {
       const headers = {
         'Content-Type': 'application/json'
       };
-    this.httpClient.post("https://localhost:7090/Supplier/Create", supplier, {headers}).subscribe(
-      (response: any) =>
-      {
-        resolve(response);
-      },
-      (error: HttpErrorResponse) => {
-        reject(error.error);
-      }
+      this.httpClient.post("https://localhost:7090/Supplier/Create", supplier, { headers }).subscribe(
+        (response: any) => {
+          resolve(response);
+        },
+        (error: HttpErrorResponse) => {
+          reject(error.error);
+        }
       )
     }
     )
