@@ -30,6 +30,7 @@ import { actionReducer } from './services/state/actions.reducer';
     ReactiveFormsModule,
     HttpClientModule,
     StoreModule.forRoot({ customer: actionReducer }),
+    StoreModule.forRoot({ supplier: actionReducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25 })
   ],
   providers: [],
