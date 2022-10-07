@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,7 +12,6 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment';
 import { actionReducer } from './services/state/actions.reducer';
 
 @NgModule({
@@ -30,8 +29,8 @@ import { actionReducer } from './services/state/actions.reducer';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    StoreModule.forRoot({customer: actionReducer}),
-    StoreDevtoolsModule.instrument({ maxAge: 25})
+    StoreModule.forRoot({ customer: actionReducer }),
+    StoreDevtoolsModule.instrument({ maxAge: 25 })
   ],
   providers: [],
   bootstrap: [AppComponent]
