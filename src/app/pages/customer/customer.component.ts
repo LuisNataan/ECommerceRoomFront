@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { selectCustomerList } from 'src/app/services/state/actions.selector';
-import { CustomerService } from 'src/app/services/state/customer/customer.service';
 import * as ServiceActions from 'src/app/services/state/service.actions';
 
 @Component({
@@ -20,7 +19,6 @@ export class CustomerComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private store: Store,
-    private customerService: CustomerService
   ) { }
 
   ngOnInit(): void {
