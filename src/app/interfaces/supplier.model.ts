@@ -1,8 +1,14 @@
-export interface Supplier
-{
-  Name: string,
-  CorporateName: string,
-  PhoneNumber: string,
-  Email: string,
-  EinNumber: string
+export interface Supplier {
+  name: string,
+  corporateName: string,
+  phoneNumber: string,
+  email: string,
+  einNumber: string,
+  addressViewModel: {
+    city: string,
+    state: string,
+    streetName: string,
+    number: string,
+    zipCode: string
+  }
 }
