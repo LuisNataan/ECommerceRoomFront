@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import * as CustomerActions from './service.actions';
+import * as ServiceActions from './service.actions';
 export interface State {
   token: string | null,
   errorMessage?: string,
@@ -13,19 +13,39 @@ export const initialState: State = {
 
 export const actionReducer = createReducer(
   initialState,
-  on(CustomerActions.registerCustomerSuccess, (state, { registerResponse }) => {
+  on(ServiceActions.registerCustomerSuccess, (state, { registerResponse }) => {
     return {
       ...state,
       token: registerResponse.responseMessage
     }
   }),
-  on(CustomerActions.registerCustomer, (state, { customer }) => {
+  on(ServiceActions.registerCustomer, (state, { customer }) => {
     return {
       ...state,
       customer
     }
   }),
-  on(CustomerActions.registerCustomerFailure, (state, { error }) => {
+  on(ServiceActions.registerCustomerFailure, (state, { error }) => {
+    return {
+      ...state,
+      token: null,
+      name: null,
+      errorMessage: error.responseMessage
+    }
+  }),
+  on(ServiceActions.registerSupplierSuccess, (state, { registerResponse }) => {
+    return {
+      ...state,
+      token: registerResponse.responseMessage
+    }
+  }),
+  on(ServiceActions.registerSupplier, (state, { supplier }) => {
+    return {
+      ...state,
+      supplier
+    }
+  }),
+  on(ServiceActions.registerSupplierFailure, (state, { error }) => {
     return {
       ...state,
       token: null,
