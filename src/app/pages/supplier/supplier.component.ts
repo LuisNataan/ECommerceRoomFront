@@ -1,7 +1,9 @@
-import { SupplierService } from './../../services/state/supplier/supplier.service';
+import { selectSupplierList } from './../../services/state/actions.selector';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import * as ServiceActions from 'src/app/services/state/service.actions';
+
 
 @Component({
   selector: 'app-supplier',
@@ -9,12 +11,15 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./supplier.component.css']
 })
 export class SupplierComponent implements OnInit {
-title = 'supplier';
+  title = 'supplier';
+
   public supplierForm!: FormGroup
+
+  supplier$ = this.store.select(selectSupplierList)
 
   constructor(
     private formBuilder: FormBuilder,
-    private supplierService: SupplierService
+    private store: Store
   ) { }
 
   ngOnInit(): void {
@@ -33,21 +38,23 @@ title = 'supplier';
   }
 
   createSupplier() {
-    let supplier: any = {
-      Name: this.supplierForm.controls['name'].value,
-      CorporateName: this.supplierForm.controls['corporateName'].value,
-      Email: this.supplierForm.controls['email'].value,
-      PhoneNumber: this.supplierForm.controls['phoneNumber'].value,
-      EinNumber: this.supplierForm.controls['einNumber'].value,
-      AddressViewModel: {
-        City: this.supplierForm.controls['city'].value,
-        State: this.supplierForm.controls['state'].value,
-        StreetName: this.supplierForm.controls['streetName'].value,
-        Number: this.supplierForm.controls['number'].value,
-        ZipCode: this.supplierForm.controls['zipCode'].value
+    this.store.dispatch(ServiceActions.registerSupplier({
+      supplier:
+      {
+        name: this.supplierForm.controls['name'].value,
+        corporateName: this.supplierForm.controls['corporateName'].value,
+        email: this.supplierForm.controls['email'].value,
+        phoneNumber: this.supplierForm.controls['phoneNumber'].value,
+        einNumber: this.supplierForm.controls['einNumber'].value,
+        addressViewModel: {
+          city: this.supplierForm.controls['city'].value,
+          state: this.supplierForm.controls['state'].value,
+          streetName: this.supplierForm.controls['streetName'].value,
+          number: this.supplierForm.controls['number'].value,
+          zipCode: this.supplierForm.controls['zipCode'].value
+        }
       }
-    }
-    this.supplierService.register(supplier);
+    }))
     alert('Supplier successfully registered.')
   }
 
