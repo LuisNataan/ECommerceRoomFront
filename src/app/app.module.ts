@@ -11,6 +11,9 @@ import { CustomerComponent } from './pages/customer/customer.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { actionReducer } from './services/state/actions.reducer';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { StoreModule } from '@ngrx/store';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({customer: actionReducer}),
+    StoreDevtoolsModule.instrument({ maxAge: 25})
   ],
   providers: [],
   bootstrap: [AppComponent]
