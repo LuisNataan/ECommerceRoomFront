@@ -34,3 +34,12 @@ export const registerSupplierFailure = createAction(
   props<{ error: ResponseModel }>()
 );
 
+export const getCustomers = createAction(
+  '[Customer List/API] Get Customer Success',
+  props<{customers: ReadonlyArray<Customer>}>()
+);
+
+export const getSuppliers = createAction(
+  '[Supplier List/API] Get Supplier Success',
+  props<{suppliers: ReadonlyArray<Supplier>}>()
+);
