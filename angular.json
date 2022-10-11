@@ -23,6 +23,7 @@
               "src/assets"
             ],
             "styles": [
+              "C:/Users/Natan/source/repos/ECommerceRoomFront/node_modules/bulma/css/bulma.css",
               "src/styles.css"
             ],
             "scripts": []

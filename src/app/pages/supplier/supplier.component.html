@@ -1,0 +1,73 @@
+<app-header></app-header>
+
+<section class="hero is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Register Supplier
+      </h1>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <form [formGroup]="supplierForm" action="register" method="post">
+      <div class="field">
+        <label class="label">Name</label>
+        <input type="text" name="name" class="input" formControlName="name" autocomplete="no">
+      </div>
+      <div class="field">
+        <label class="label">Corporate Name</label>
+        <input type="text" name="corporateName" class="input" formControlName="corporateName" autocomplete="no">
+      </div>
+      <div class="field">
+        <label class="label">Email</label>
+        <input type="email" name="email" class="input" formControlName="email" autocomplete="off">
+      </div>
+
+      <div class="field">
+        <label class="label">Phone Number</label>
+        <input type="text" name="phoneNumber" class="input" formControlName="phoneNumber">
+      </div>
+
+      <div class="field">
+        <label class="label">Ein Number</label>
+        <input type="text" name="einNumber" class="input" formControlName="einNumber">
+      </div>
+
+      <div class="field">
+        <label class="label">City</label>
+        <input type="text" name="city" class="input" formControlName="city">
+      </div>
+
+      <div class="field">
+        <label class="label">State</label>
+        <input type="text" name="state" class="input" formControlName="state">
+      </div>
+
+      <div class="field">
+        <label class="label">Street Name</label>
+        <input type="text" name="streetName" class="input" formControlName="streetName">
+      </div>
+
+      <div class="field">
+        <label class="label">Number</label>
+        <input type="text" name="number" class="input" formControlName="number">
+      </div>
+
+      <div class="field">
+        <label class="label">Zip Code</label>
+        <input type="text" name="zipCode" class="input" formControlName="zipCode">
+      </div>
+
+      <div class="field">
+        <button type="submit" class="button is-large is-warning" (click)="createSupplier()">
+          Register
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<app-footer></app-footer>
